@@ -19,7 +19,8 @@ async def showid(client, message):
         last = message.from_user.last_name or "None"
         username = f"@{message.from_user.username}" or "None"
         await message.reply_text(
-            f"★ First Name: {first}\n★ Last Name: {last}\n★ Username: {username}\n★ User ID: <code>{user_id}</code>"
+            f"★ First Name: {first}\n★ Last Name: {last}\n★ Username: {username}\n★ User ID: <code>{user_id}</code>",
+            quote=True
         )
 
     elif chat_type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
@@ -48,7 +49,8 @@ async def showid(client, message):
                 f"<code>{file_info.file_id}</code>\n"
             )
         await message.reply_text(
-            _id
+            _id,
+            quote=True
         )
 
     if chat_type == enums.ChatType.CHANNEL:
@@ -79,7 +81,7 @@ async def who_is(client, message):
     message_out_str += f"★ User ID: <code>{from_user.id}</code>\n"
     username = f"@{from_user.username}" or "None"
     message_out_str += f"★ Username: {username}\n"
-    message_out_str += f"★ User Link: <a href='tg://user?id={from_user.id}'>Click Here</a>\n"
+    message_out_str += f"★ User Link: <a href='tg://user?id={from_user.id}'>{from_user.first_name}</a>\n"
     chat_photo = from_user.photo
     if chat_photo:
         local_user_photo = await client.download_media(
@@ -91,6 +93,7 @@ async def who_is(client, message):
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
             photo=local_user_photo,
+            quote=True,
             reply_markup=reply_markup,
             caption=message_out_str,
             parse_mode=enums.ParseMode.HTML,
@@ -105,6 +108,7 @@ async def who_is(client, message):
         await message.reply_text(
             text=message_out_str,
             reply_markup=reply_markup,
+            quote=True,
             parse_mode=enums.ParseMode.HTML,
             disable_notification=True
         )
