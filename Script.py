@@ -67,14 +67,14 @@ Added by: {}"""
     NEW_USER_TXT = """#NewUser
 Name: {}
 ID: <code>{}</code>"""
-    
+
     NO_RESULT_TXT = """#NoResult
 Group Name: {}
 Group ID: <code>{}</code>
 Name: {}
 Message: {}"""
 
-PM_MSG_TXT = """#InboxMessage
+    PM_MSG_TXT = """#InboxMessage
 Name: {}
 ID: <code>{}</code>
 Message: {}"""
