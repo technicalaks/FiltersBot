@@ -65,10 +65,10 @@ async def give_filter(client, message):
 
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
-async def pm_text(bot, message):
+async def pm_msg(bot, message):
     if message.text.startswith("/"): return  # ignore commands
     await message.reply_text("Your message has been sent in my owner!")
-    await bot.send_message(chat_id=LOG_CHANNEL, text=f"<b>#𝐏𝐌_𝐌𝐒𝐆\n\nNᴀᴍᴇ: {message.from_user.mention}\n\nID: {message.from_user.id}\nMessage: {message.text}</b>")
+    await bot.send_message(LOG_CHANNEL, script.PM_MSG_TXT.format(message.from_user.mention, message.from_user.id, message.text))
 
 
 @Client.on_callback_query(filters.regex(r"^next"))
