@@ -73,3 +73,8 @@ Group Name: {}
 Group ID: <code>{}</code>
 Name: {}
 Message: {}"""
+
+PM_MSG_TXT = """#InboxMessage
+Name: {}
+ID: <code>{}</code>
+Message: {}"""
