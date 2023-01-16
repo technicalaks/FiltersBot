@@ -636,6 +636,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ):
             await query.answer("This Is Not For You!", show_alert=True)
             return
+        if str(grp_id) != str(grpid):
+            await query.message.edit("You are not connected to the group! Please /connect group and then change /settings")
+            return
         title = query.message.chat.title
         settings = await get_settings(grpid)
         btn = [[
