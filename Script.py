@@ -8,7 +8,7 @@ All you have to do is add me to a group and give me admin. 😌
 I will take care of the rest. 😎"""
 
     ABOUT_TXT = """★ My Name: <a href=https://t.me/{}>{}</a>
-★ Creator: <a href=https://t.me/Hansaka_Anuhas>Hansaka Anuhas</a> 🇱🇰
+★ My Owner: <a href=https://t.me/Hansaka_Anuhas>Hansaka Anuhas</a> 🇱🇰
 
 ★ Bot Server: <a href=https://www.heroku.com>Heroku</a>
 ★ Database: <a href=https://www.mongodb.com>MongoDB</a>"""
