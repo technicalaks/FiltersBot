@@ -689,8 +689,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     reply_markup=InlineKeyboardMarkup(buttons),
                     parse_mode=enums.ParseMode.HTML
                 )
-                await query.message.edit_text(f"Settings menu sent in private chat.")
                 await query.message.edit_reply_markup(InlineKeyboardMarkup(btn))
+                await query.message.edit_text(f"Settings menu sent in private chat.")
             except UserIsBlocked:
                 return await query.answer('Your blocked me, Unblock me and try again...', show_alert=True)
 
