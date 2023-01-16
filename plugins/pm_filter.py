@@ -778,7 +778,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit("You are not connected to the group! Please /connect group and then change /settings")
             return
 
-        await query.answer("Changed!")
+        
         if status == "True":
             await save_group_settings(grpid, set_type, False)
         else:
@@ -826,6 +826,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 ]
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
+            await query.answer("Changed!")
             await query.message.edit_reply_markup(reply_markup)
 
 
