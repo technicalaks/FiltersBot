@@ -59,8 +59,6 @@ async def showid(client, message):
 
 @Client.on_message(filters.command(["info"]))
 async def who_is(client, message):
-    chat_type = message.chat.type
-    if chat_type == enums.ChatType.PRIVATE:
     status_message = await message.reply_text(
         "Getting user info..."
     )
