@@ -692,8 +692,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     reply_markup=InlineKeyboardMarkup(buttons),
                     parse_mode=enums.ParseMode.HTML
                 )
-                await query.message.edit_reply_markup(InlineKeyboardMarkup(btn))
                 await query.message.edit_text(f"Settings menu sent in private chat.")
+                await query.message.edit_reply_markup(InlineKeyboardMarkup(btn))
             except UserIsBlocked:
                 return await query.answer('Your blocked me, Unblock me and try again...', show_alert=True)
 
@@ -708,6 +708,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 and str(userid) not in ADMINS
         ):
             await query.answer("This Is Not For You!", show_alert=True)
+            return
+        if str(grp_id) != str(grpid):
+            await query.message.edit("You are not connected to the group! Please /connect group and then change /settings")
             return
         title = query.message.chat.title
         settings = await get_settings(grpid)
