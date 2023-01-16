@@ -778,7 +778,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
             await query.message.edit("You are not connected to the group! Please /connect group and then change /settings")
             return
 
-        
         if status == "True":
             await save_group_settings(grpid, set_type, False)
         else:
